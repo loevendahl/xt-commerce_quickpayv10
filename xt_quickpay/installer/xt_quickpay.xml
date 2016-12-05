@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xtcommerceplugin>
+    <title>Quickpay</title>
+    <version>1.0.0</version>
+    <code>xt_quickpay</code>
+    <url>http://quickpay.net</url>
+    <description>Quickpay secure payments</description>
+    <icon>quickpay_85.png</icon>
+    <developer>Quickpay:blkom.dk</developer>
+    <documentation_link><![CDATA[https://tech.quickpay.net]]></documentation_link>
+    <marketplace_link><![CDATA[https://quickpay.net/integrations/]]></marketplace_link>
+    <type>payment</type>
+    <payment>
+        <payment_code>xt_quickpay</payment_code>
+        <payment_dir>xt_quickpay</payment_dir>
+        <payment_icon>quickpay_85.png</payment_icon>
+        <payment_tpl>quickpay.tpl.html</payment_tpl>
+        <en>
+            <title>Secure payments through Quickpay</title>
+            <description></description>
+        </en>
+         <de>
+            <title>Sicher bezahlen über Quickpay</title>
+            <description></description>
+        </de>
+    </payment>
+
+    <db_install><![CDATA[include(_SRV_WEBROOT._SRV_WEB_PLUGINS.'xt_quickpay/installer/db_install.php');]]></db_install>
+
+    <plugin_code>
+        <code>
+            <hook>module_checkout.php:checkout_first</hook>
+            <phpcode>
+                <![CDATA[include(_SRV_WEBROOT._SRV_WEB_PLUGINS.'xt_quickpay/hooks/module_checkout.php_checkout_first.php');]]></phpcode>
+            <order>1</order>
+            <active>1</active>
+        </code>
+        <code>
+            <hook>module_checkout.php:checkout_proccess_order_processed</hook>
+            <phpcode>
+                <![CDATA[include(_SRV_WEBROOT._SRV_WEB_PLUGINS.'xt_quickpay/hooks/module_checkout.php_checkout_proccess_order_processed.php');]]></phpcode>
+            <order>1</order>
+            <active>1</active>
+        </code>
+        <code>
+            <hook>class.checkout.php:_selectPayment_tpl_data</hook>
+            <phpcode>
+                <![CDATA[include(_SRV_WEBROOT._SRV_WEB_PLUGINS.'xt_quickpay/hooks/class.checkout.php__selectPayment_tpl_data.php');]]></phpcode>
+            <order>1</order>
+            <active>1</active>
+        </code>
+        <code>
+            <hook>class.payment.php:_getPayment_data</hook>
+            <phpcode>
+                <![CDATA[include(_SRV_WEBROOT._SRV_WEB_PLUGINS.'xt_quickpay/hooks/class.payment.php__getPayment_data.php');]]></phpcode>
+            <order>1</order>
+            <active>1</active>
+        </code>
+        <code>
+            <hook>class.payment.php:_getParams_bottom</hook>
+            <phpcode>
+                <![CDATA[include(_SRV_WEBROOT._SRV_WEB_PLUGINS.'xt_quickpay/hooks/class.payment.php__getParams_bottom.php');]]></phpcode>
+            <order>1</order>
+            <active>1</active>
+        </code>
+        <code>
+            <hook>admin_dropdown.php:dropdown</hook>
+            <phpcode>
+                <![CDATA[include(_SRV_WEBROOT._SRV_WEB_PLUGINS.'xt_quickpay/hooks/admin_dropdown.php_dropdown.php');]]></phpcode>
+            <order>1</order>
+            <active>1</active>
+        </code>
+		     <code>
+            <hook>order_edit.php:display_data</hook>
+            <phpcode>
+                <![CDATA[include(_SRV_WEBROOT._SRV_WEB_PLUGINS.'xt_quickpay/hooks/order_edit.php_display_data.php');]]></phpcode>
+            <order>1</order>
+            <active>1</active>
+        </code>
+		<code>
+            <hook>ejsadmin.php:css_styles</hook>
+            <phpcode>
+                <![CDATA[include(_SRV_WEBROOT._SRV_WEB_PLUGINS.'xt_quickpay/hooks/ejsadmin.php__css_styles.php');]]></phpcode>
+            <order>1</order>
+            <active>1</active>
+        </code>
+    </plugin_code>
+
+    <configuration_payment>
+        <config>
+            <key>MERCHANT_ID</key>
+            <type>text</type>
+            <sort_order>2</sort_order>
+            <en>
+                <title>Merchant ID</title>
+            </en>
+			 <de>
+                <title>Händler ID</title>
+            </de>
+        </config>
+		<config>
+            <key>PRIVATE_KEY</key>
+            <type>text</type>
+            <sort_order>3</sort_order>
+            <en>
+                <title>Merchant private key</title>
+            </en>
+			  <de>
+                <title>Händler private key</title>
+            </de>
+        </config>
+        <config>
+            <key>API_USER_KEY</key>
+            <type>text</type>
+            <sort_order>4</sort_order>
+            <en>
+                <title>Your API USER key</title>
+            </en>
+			  <de>
+                <title>Deine API USER key</title>
+            </de>
+        </config>
+		<config>
+            <key>PROCESSED</key>
+            <type>dropdown</type>
+            <sort_order>5</sort_order>
+            <url>status:order_status</url>
+            <en>
+                <title>Order status - Completed</title>
+            </en>
+			<de>
+			<title>Bestellstatus - Erfolgreich</title>
+			</de>
+        </config>
+        <config>
+            <key>CANCELED</key>
+            <type>dropdown</type>
+            <url>status:order_status</url>
+            <sort_order>6</sort_order>
+            <en>
+                <title>Ordersstatus - Canceled</title>
+            </en>
+			 <de>
+                <title>Bestellstatus - Abgelehnt</title>
+            </de>
+        </config>
+        <config>
+            <key>PENDING</key>
+            <type>dropdown</type>
+            <url>status:order_status</url>
+            <sort_order>7</sort_order>
+            <en>
+                <title>Ordersstatus - Pending</title>
+            </en>
+			<de>
+                <title>Bestellstatus - In Bearbeitung</title>
+            </de>
+        </config>
+		 <config>
+            <key>SHOP_TYPE</key>
+            <type>dropdown</type>
+            <url>QP_subscriptions</url>
+            <sort_order>8</sort_order>
+            <en>
+                <title>Shop type</title>
+            </en>
+			  <de>
+                <title>Shop type</title>
+            </de>
+        </config>
+        <config>
+            <key>ACTIVATED_PAYMENTS</key>
+            <type>itemselect</type>
+            <valueUrl><![CDATA[adminHandler.php?plugin=xt_quickpay&load_section=xt_quickpay&pg=saved_QP_ACTIVATED_PAYMENTS]]></valueUrl>
+            <url>DropdownData.php?get=all_QP_ACTIVATED_PAYMENTS</url>
+            <sort_order>9</sort_order>
+            <en>
+                <title>Activated payment methods</title>
+            </en>
+			  <de>
+                <title>Aktivierte Zahlungsarten</title>
+            </de>
+        </config>
+    </configuration_payment>
+</xtcommerceplugin> 

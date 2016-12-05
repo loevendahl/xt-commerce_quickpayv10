@@ -1,0 +1,63 @@
+<style>
+    {literal}
+    .selected-sub-payment {
+        display: inline-block !important;
+    }
+    .quickpay_subpayment {
+        line-height: 21px;
+        height: 21px;
+        padding: 0 10px 40px 0;
+        margin: 0;
+        display: inline-block !important;
+        float: left;
+        width: 290px;
+    }
+    .quickpay_subpayment:hover {
+        cursor: pointer;
+    }
+
+    .quickpay_subpayment *
+    {
+        vertical-align: middle;
+        padding:0; margin: 0;
+    }
+    .quickpay_subpayment input, .quickpay_subpayment img
+    {
+        padding:0; margin: 0 5px 0 0;
+    }
+    .quickpay_payment_name
+    {
+        font-size: 0.95em;
+        line-height: 0.9em;
+    }
+    {/literal}
+</style>
+<script type="application/javascript">
+    {literal}
+    $(function(){
+        //$('input"]').removeattr('checked', 'checked');
+        //$('input[value="xt_skrill:{/literal}{$selected_sub_payment}{literal}"]').click();
+    });
+    {/literal}
+</script>
+
+<div class="box box-white box-hover skrill">
+    <p class="payment-name">
+        <span style="display:inline-block;width: 25px;">{form type=radio name=selected_payment value=$payment_code}</span>
+        {$payment_name} {if $payment_price.formated}<span class="normal">({$payment_price.formated})</span>{/if} {if
+        $payment_icon}<span class="float-right">{img img=$payment_icon type=w_media_payment alt=$payment_name}</span>{/if}
+    </p>
+
+    <div class="payment-desc" style="display:none;padding-left:25px;">
+        {foreach from=$sub_payments item=sub_payment key=sub_payment_code}
+
+        <label class= "quickpay_subpayment" style="">
+            <span><input type="radio" name="selected_payment_quickpay" value="{$payment_code}:{$sub_payment_code}" /></span>
+            <img src="plugins/xt_quickpay/images/payment/{$sub_payment.icon}" height="25" style="height:25px"/>
+            <span class="bold sub_payment_name">{$sub_payment.name}</span>
+        </label>
+        {/foreach}
+    </div>
+
+    <div style="height: 1px;clear: both" ></div>
+</div>

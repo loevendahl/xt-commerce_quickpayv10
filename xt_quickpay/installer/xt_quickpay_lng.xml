@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xtcommerceplugin>
+	<language_content>
+	<phrase>
+	<key>TEXT_XT_QUICKPAY_INFO_QUICKPAY_CAPTURED</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Requested amount is captured]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Requested amount is captured]]></value>
+	</de>
+    </phrase>
+    <phrase>
+	<key>TEXT_XT_QUICKPAY_INFO_QUICKPAY_REVERSED</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Payment is cancelled]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Payment is cancelled]]></value>
+	</de>
+    </phrase>
+	 <phrase>
+	<key>TEXT_XT_QUICKPAY_INFO_QUICKPAY_CREDITED</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Requested amount is refunded]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Requested amount is refunded]]></value>
+	</de>
+    </phrase>
+	<phrase>
+	<key>TEXT_XT_QUICKPAY_PENDING_STATUS</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Awaiting Aquirer approval]]></value>
+	</en>
+	<de>
+		<value><![CDATA[In Erwartung der Aquirer-Zulassung]]></value>
+	</de>
+    </phrase>
+	<phrase>
+	<key>TEXT_XT_QUICKPAY_CAPTURE</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Capture]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Capture]]></value>
+	</de>
+    </phrase>
+		<phrase>
+	<key>TEXT_XT_QUICKPAY_REFUND</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Refund]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Verweigerung]]></value>
+	</de>
+    </phrase>
+	<phrase>
+	<key>TEXT_XT_QUICKPAY_AMOUNT_CREDITED</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Payment is cancelled. Balance:]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Betrag ist Abgelehnt. Balance:]]></value>
+	</de>
+    </phrase>
+	<phrase>
+	<key>TEXT_XT_QUICKPAY_AMOUNT_REFUNDED</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Captured amount is Refunded. Balance:]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Betrag is Zurückgezahlt. Balance:]]></value>
+	</de>
+    </phrase>
+		<phrase>
+	<key>XT_QUICKPAY_CONFIRM_CAPTURE</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[The Requested amount is different from the Authorized amount.OK?]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Das Gewünschten Betrag ist verschieden von Autorizerten Betrag. OK?]]></value>
+	</de>
+    </phrase>
+			<phrase>
+	<key>XT_QUICKPAY_CONFIRM_CANCEL</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Cancel payment? Cannot be reversed.]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Zahlung abgelehnen? Kann nicht rückgängig gemacht werden. ]]></value>
+	</de>
+    </phrase>
+	<phrase>
+	<key>XT_QUICKPAY_CONFIRM_REFUND</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Refund amount?]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Gewünschten Betrag zurückzahlen ?]]></value>
+	</de>
+    </phrase>
+		<phrase>
+	<key>XT_QUICKPAY_TRANSACTIONS</key>
+	<class>admin</class>
+	<en>
+		<value><![CDATA[Quickpay transactions]]></value>
+	</en>
+	<de>
+		<value><![CDATA[Quickpay transaktionen]]></value>
+	</de>
+    </phrase>
+   </language_content>
+</xtcommerceplugin>	

@@ -1,0 +1,115 @@
+<style>
+    {literal}
+    .selected-sub-payment {
+        display: inline-block !important;
+    }
+    .quickpay_subpayment {
+        line-height: 21px;
+        height: 21px;
+        padding: 0 40px 40px 0;
+        margin: 0 20px 10px;
+        display: inline-block !important;
+        float: left;
+        width: 290px;
+    }
+    .quickpay_subpayment:hover {
+        cursor: pointer;
+    }
+
+    .quickpay_subpayment *
+    {
+        vertical-align: middle;
+        padding:0; margin: 0;
+    }
+    .quickpay_subpayment input, .quickpay_subpayment img
+    {
+        padding:0; margin: 0 5px 0 0;
+    }
+    .sub_payment_name
+    {
+        font-size: 0.95em;
+        line-height: 0.9em;
+    }
+
+
+    #checkout .list-group .list-group-item.active.list-group-item-xt_quickpay {
+        background-color: inherit;
+        color: inherit;
+    }
+
+    .item-xt_quickpay .desc
+    {
+        padding: 20px 50px;
+    }
+    .item-xt_quickpay img
+    {
+        border: 0;
+        z-index: -1;
+    }
+
+    {/literal}
+</style>
+<script type="application/javascript">
+    {literal}
+    $(function()
+    {
+        $('*').click( function(e){
+            console.log(e);
+        });
+        $('.item-xt_quickpay .collapse').click( function(e){
+            if (!e)
+                e = window.event;
+
+            //IE9 & Other Browsers
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+            //IE8 and Lower
+            else {
+                e.cancelBubble = true;
+            }
+        });
+    });
+    {/literal}
+</script>
+
+
+<div class="item item-{$payment_code}{if $payment_code == $payment_selected} selected{/if} payment-container">
+    {if $payment_icon|trim != ''}
+        {img img=$payment_icon type=w_media_payment alt=$payment_name class="icon img-responsive img-thumbnail pull-right"}
+    {/if}
+    <header>
+        <label class="cursor-pointer">
+            <span class="check">
+                {if $payment_hidden == true}
+                    {form type=hidden name=selected_payment value=$payment_code}
+                {else}
+                    {if $payment_code == $payment_selected}
+                        {form type=radio name=selected_payment value=$payment_code checked=true}
+                    {else}
+                        {form type=radio name=selected_payment value=$payment_code}
+                    {/if}
+                {/if}
+            </span>
+            <span class="name payment-name">{$payment_name}</span>
+            {if $payment_price.formated}
+                <small class="price">&nbsp;{$payment_price.formated}</small>
+            {/if}
+        </label>
+    </header>
+    <div class="desc collapse {if $payment_code == $payment_selected} in{/if} payment-desc">
+        {if $payment_desc|trim != ''}
+            <p>
+                {$payment_desc}
+    </p>
+        {/if}
+        {foreach from=$sub_payments item=sub_payment key=sub_payment_code}
+        <label class= "quickpay_subpayment" style="">
+            <span><input type="radio" name="selected_payment_quickpay" value="{$payment_code}:{$sub_payment_code}" /></span>
+            <img src="plugins/xt_quickpay/images/payment/{$sub_payment.icon}" height="25" style="height:25px"/>
+            <span class="bold sub_payment_name">{$sub_payment.name}</span>
+        </label>
+        {/foreach}
+    </div>
+</div>
+

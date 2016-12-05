@@ -1,0 +1,63 @@
+#qptools.*{
+	
+	padding: 0;
+	margin: 0;
+}
+#qptools form{
+
+margin-bottom: 10px;
+}
+#qptools input{
+	
+	padding: 2px;
+}
+#qptools{
+
+	padding: 5px;
+	padding-bottom: 10px;
+	clear: both;
+	margin-top: 1px;
+
+}
+#qptoolsbox{
+	
+	margin-left: 15%;
+	
+}
+#qptoolslabel{
+ width:15%;
+ font-weight: bold;
+
+ 
+}
+#qptoolsbox form img {
+    position: relative;
+    top: 5px;
+}
+#qptoolsbox div {
+   display: inline-block;
+}
+
+.statusinfo{
+	font-size: 0.9em;
+	color: #444;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.cardinfo{
+	padding: 8px;
+    display: inline-block;
+    background: #fff;
+    width: 100%;
+	box-shadow: 0 5px 5px 5px rgba(0,0,0,0.2);
+}
+
+.cardinfo li{
+	float: left;
+	padding-right: 8px;
+}
+.x-panel {
+ 
+    z-index: 10;
+}
+
